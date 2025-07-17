@@ -4,14 +4,80 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Happy Birthday Xiaohan 🎂</title>
-  <link rel="stylesheet" href="style.css"/>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Georgia', serif;
+      background-image: url('https://images.unsplash.com/photo-1524813686514-a57563d77965?fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-attachment: fixed;
+      overflow: hidden;
+    }
+
+    .container {
+      background-color: rgba(255, 248, 241, 0.85);
+      border-radius: 15px;
+      max-width: 600px;
+      margin: 15% auto;
+      padding: 40px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #a33c7d;
+    }
+
+    p {
+      color: #4a2c2a;
+      font-size: 18px;
+    }
+
+    /* Snow effect */
+    .snowflake {
+      position: fixed;
+      top: -10px;
+      z-index: 9999;
+      user-select: none;
+      pointer-events: none;
+      color: #fff;
+      font-size: 1em;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="container">
-    <h1>Happy 20th Birthday, Xiaohan! 🎉</h1>
+    <h1 onclick="loveNote()">Happy 20th Birthday, Xiaohan! 🎉</h1>
     <p>From your Danni 💙</p>
     <p>This is your special day, and this whole website exists only to celebrate you.</p>
     <p>You are loved, you are cherished, you are irreplaceable.</p>
   </div>
+
+  <script>
+    // 点击标题弹出一句低语情话
+    function loveNote() {
+      alert("你知道我爱你到快爆炸吗？🥺💙");
+    }
+
+    // 雪花生成器
+    setInterval(() => {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      snowflake.style.left = Math.random() * window.innerWidth + 'px';
+      snowflake.style.animationDuration = 2 + Math.random() * 3 + 's';
+      snowflake.style.opacity = Math.random();
+      snowflake.innerText = '❄';
+      document.body.appendChild(snowflake);
+      setTimeout(() => snowflake.remove(), 5000);
+    }, 200);
+  </script>
 </body>
 </html>
